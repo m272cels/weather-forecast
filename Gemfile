@@ -63,3 +63,7 @@ gem "redis"
 
 # Look up lat long coordinates and zip codes for address inputs.
 gem "geocoder"
+
+# Simple HTTP client library.
+gem "faraday"
+gem "faraday-retry"
