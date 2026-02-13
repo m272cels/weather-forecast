@@ -1,9 +1,10 @@
-<div>
-  <h1 class="font-bold text-4xl">Find your weather forecast</h1>
+<div class="w-full max-w-2xl">
+  <h1 class="font-bold text-4xl py-4">Find your weather</h1>
 
-  <%= form_with url: search_forecasts_path do |form| %>
-    <%= form.label :query, "Search for:" %>
-    <%= form.search_field :query %>
-    <%= form.submit "Search" %>
+  <%= form_with url: search_forecasts_path, method: :get, data: { turbo_frame: :forecasts_search }, class: "flex" do |form| %>
+    <%= form.search_field :query, placeholder: 'Input address here', class: "border rounded-xl px-2 flex-grow" %>
+    <%= form.submit "Search", class: "rounded-full bg-blue-500 px-4 ml-2 cursor-pointer text-white font-bold flex-shrink" %>
   <% end %>
+
+  <%= turbo_frame_tag :forecasts_search %>
 </div>
