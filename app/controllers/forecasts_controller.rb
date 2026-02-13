@@ -6,7 +6,11 @@ class ForecastsController < ApplicationController
     @address = params["address"]
     @zip = params["zip"]
 
-    @temperature = WeatherService.new(@address).get_current_weather
+    @from_cache = true
+    @current_weather = Rails.cache.fetch("weather_service:#{@zip}", expires_in: 30.minutes) do
+      @from_cache = false
+      WeatherService.new(@address).get_current_weather
+    end
   end
 
   def search

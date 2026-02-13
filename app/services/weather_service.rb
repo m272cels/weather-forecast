@@ -27,7 +27,6 @@ class WeatherService
       lon:,
       units: "imperial"
     })
-    body = response.body
-    body.dig("main", "temp")
+    response.body.merge("fetched_at" => Time.current.to_i)
   end
 end

@@ -1,8 +1,15 @@
 <div>
-  <h1 class="font-bold text-4xl">Forecast for <%= @zip %></h1>
+  <h1 class="font-bold text-2xl">Forecast for <%= @zip %></h1>
   <% if @address.present? %>
     <p>(<%= @address %>)</p>
   <% end %>
+  <% if @from_cache %>
+    <p>Fetched <%= time_ago_in_words(@current_weather["fetched_at"]) %> ago</p>
+  <% else %>
+    <p>Updated just now.</p>
+  <% end %>
 
-  <h1 class="font-bold text-4xl"><%= @temperature %> °F</h1>
+
+  <h1 class="font-bold text-4xl p-8"><%= @current_weather.dig("main", "temp") %> °F</h1>
+  <%= link_to "Go Back", "/" %>
 </div>
