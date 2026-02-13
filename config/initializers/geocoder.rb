@@ -24,7 +24,7 @@ Geocoder.configure(
 
   # Cache configuration
   cache_options: {
-    expiration: 30.minutes,
+    expiration: 30.days,
     prefix: "geocoder:"
   }
 )

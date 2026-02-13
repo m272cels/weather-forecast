@@ -12,6 +12,8 @@ class WeatherService
     open_weather_get_current!
   end
 
+  private
+
   def open_weather_get_current!
     lat, lon = geocoded_location.coordinates
     conn = Faraday.new("https://api.openweathermap.org") do |f|
