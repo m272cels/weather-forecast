@@ -57,3 +57,9 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
+
+# Cache results from external API calls.
+gem "redis"
+
+# Look up lat long coordinates and zip codes for address inputs.
+gem "geocoder"
